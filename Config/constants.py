@@ -11,3 +11,6 @@ RAW_DATA_DIR = ROOT_DIR / "Data/Raw"
 
 # eda
 RANDOM_SAMPLE_SIZE = 20 # random sample grid visualization size
+DELIMITER = ";"
+IMAGE_FORMAT = "ppm"
+TABLE_FORMAT = "csv"

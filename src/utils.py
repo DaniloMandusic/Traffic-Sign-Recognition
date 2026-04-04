@@ -1,4 +1,8 @@
 import math
+from pathlib import Path
+import random
+from PIL import Image
+import matplotlib.pyplot as plt
 
 def get_subplot_dims(num_samples, max_cols=5, aspect_ratio=(4, 3)):
     """
@@ -25,3 +29,52 @@ def get_subplot_dims(num_samples, max_cols=5, aspect_ratio=(4, 3)):
     fig_height = rows * height_per_ax
 
     return rows, cols, (fig_width, fig_height)
+
+def plot_image_samples(
+        dataset_path,
+        mode="random",              # "random" or "per_class"
+        n_samples=20,               # used for random mode
+        n_per_class=5,              # used for per_class mode
+        get_subplot_dims=None       # pass your function here
+):
+    dataset_path = Path(dataset_path)
+
+    # ---- Collect images ----
+    if mode == "random":
+        all_images = list(dataset_path.rglob("*.ppm"))
+        samples = random.sample(all_images, min(n_samples, len(all_images)))
+
+    elif mode == "per_class":
+        samples = []
+        for class_dir in sorted(dataset_path.iterdir()):
+            if class_dir.is_dir():
+                images = list(class_dir.glob("*.ppm"))
+                if images:
+                    k = min(n_per_class, len(images))  # avoid errors
+                    samples.extend(random.sample(images, k))
+    else:
+        raise ValueError("mode must be 'random' or 'per_class'")
+
+    # ---- Plot ----
+    if get_subplot_dims:
+        nrows, ncols, figsize = get_subplot_dims(len(samples))
+    else:
+        ncols = 5
+        nrows = (len(samples) + ncols - 1) // ncols
+        figsize = (ncols * 3, nrows * 3)
+
+    fig, axes = plt.subplots(nrows, ncols, figsize=figsize)
+    axes = axes.flatten()
+
+    for ax, img_path in zip(axes, samples):
+        img = Image.open(img_path)
+        ax.imshow(img)
+        ax.set_title(img_path.parent.name, fontsize=8)
+        ax.axis("off")
+
+    # Hide unused axes
+    for ax in axes[len(samples):]:
+        ax.axis("off")
+
+    plt.tight_layout()
+    plt.show()

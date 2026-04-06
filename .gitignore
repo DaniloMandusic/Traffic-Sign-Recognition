@@ -2,3 +2,5 @@ venv/
 
 Data/Raw/*
 !Data/Raw/Readme.txt
+
+Data/Processed/*

@@ -7,17 +7,20 @@ class GTSRBDataset(Dataset):
         self.df = df
         self.transform = transform
 
+    def __len__(self):
+        return len(self.df)
+
     def __getitem__(self, idx):
         row = self.df.iloc[idx]
 
         image = cv2.imread(row["path"])
-        x1, y1, x2, y2 = row["roi"]
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
-        # Crop ROI
+        x1, y1, x2, y2 = row["roi"]
         image = image[y1:y2, x1:x2]
 
         if self.transform:
-            image = self.transform(image)
+            image = self.transform(image=image)["image"]
 
         label = row["label"]
         return image, label

@@ -19,3 +19,10 @@ TABLE_FORMAT = "csv"
 # preprocessing
 TRACK_LENGTH = 30
 SAMPLES_LIMIT = 300
+ALL_IMAGES_CSV_PATH = PROCESSED_DATA_DIR / "all_images.csv"
+TRAIN_CSV_PATH = PROCESSED_DATA_DIR / "train.csv"
+TEST_CSV_PATH = PROCESSED_DATA_DIR / "test.csv"
+VAL_CSV_PATH = PROCESSED_DATA_DIR / "val.csv"
+
+# training
+SEED = 42

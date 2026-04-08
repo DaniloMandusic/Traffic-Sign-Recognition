@@ -26,3 +26,4 @@ VAL_CSV_PATH = PROCESSED_DATA_DIR / "val.csv"
 
 # training
 SEED = 42
+NUM_CLASSES = 43

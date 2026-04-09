@@ -1,0 +1,10 @@
+batch_size: 48
+dropout: 0.3
+freeze_backbone: true
+image_size: 224
+loss_name: cross_entropy
+lr: 0.0005
+model_name: efficientnet_b0
+optimizer_name: adam
+unfreeze_last_n: 2
+weight_decay: 0.0001

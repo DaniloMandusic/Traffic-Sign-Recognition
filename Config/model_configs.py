@@ -57,17 +57,83 @@ CONFIGS = {
         "weight_decay": 1e-4,
     },
 
-    # Experiment 3: Full Fine-Tuning
-    # Unfreeze everything. Uses SGD for better generalization during fine-tuning.
-    "exp005_b0_full_unfreeze": {
+    "exp005": {
+        "model_name": "efficientnet_b0",
+        "image_size": 224,
+        "batch_size": 48,
+        "lr": 3e-4,
+        "freeze_backbone": True,
+        "unfreeze_last_n": 6,
+        "optimizer_name": "adam",
+        "loss_name": "cross_entropy",
+        "dropout": 0.3,
+        "weight_decay": 1e-4,
+    },
+
+    "exp006": {
+        "model_name": "efficientnet_b0",
+        "image_size": 224,
+        "batch_size": 48,
+        "lr": 3e-4,
+        "freeze_backbone": True,
+        "unfreeze_last_n": 6,
+        "optimizer_name": "adam",
+        "loss_name": "cross_entropy",
+        "dropout": 0.4,
+        "weight_decay": 1e-4,
+    },
+
+    "exp007": {
+        "model_name": "efficientnet_b0",
+        "image_size": 224,
+        "batch_size": 48,
+        "lr": 3e-4,
+        "freeze_backbone": False,
+        "unfreeze_last_n": 6,
+        "optimizer_name": "adam",
+        "loss_name": "cross_entropy",
+        "dropout": 0.3,
+        "weight_decay": 1e-4,
+    },
+
+    "exp008": {
         "model_name": "efficientnet_b0",
         "image_size": 224,
         "batch_size": 32,
-        "lr": 1e-5,                   # Very low LR to avoid destroying pre-trained info
-        "freeze_backbone": False,     # Logic in factory will ignore unfreeze_last_n
-        "optimizer_name": "sgd",      # SGD is often preferred for late-stage fine-tuning
+        "lr": 3e-4,
+        "freeze_backbone": True,
+        "unfreeze_last_n": 6,
+        "optimizer_name": "sgd",
         "loss_name": "cross_entropy",
-        "dropout": 0.4,
+        "dropout": 0.3,
+        "weight_decay": 1e-2,
+        "momentum": 0.9,
+    },
+
+    "exp009": {
+        "model_name": "efficientnet_b0",
+        "image_size": 224,
+        "batch_size": 32,
+        "lr": 1e-4,
+        "freeze_backbone": True,
+        "unfreeze_last_n": 6,
+        "optimizer_name": "sgd",
+        "loss_name": "cross_entropy",
+        "dropout": 0.3,
+        "weight_decay": 1e-2,
+        "momentum": 0.9,
+    },
+
+    "exp010": {
+        "model_name": "efficientnet_b0",
+        "image_size": 224,
+        "batch_size": 32,
+        "lr": 5e-4,
+        "freeze_backbone": True,
+        "unfreeze_last_n": 6,
+        "optimizer_name": "sgd",
+        "loss_name": "cross_entropy",
+        "dropout": 0.3,
         "weight_decay": 1e-2,
         "momentum": 0.9,
     }

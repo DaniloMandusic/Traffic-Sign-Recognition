@@ -4,3 +4,7 @@ Data/Raw/*
 !Data/Raw/Readme.txt
 
 Data/Processed/*
+
+Experiments/lightning_logs/*
+
+Notebooks/lightning_logs/*

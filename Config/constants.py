@@ -29,3 +29,4 @@ SEED = 42
 NUM_CLASSES = 43
 MODEL_CHECKPOINTS_DIR = ROOT_DIR / "Experiments/checkpoints"
 LOGS_DIR = ROOT_DIR / "Experiments/lightning_logs"
+FOLDS_DIR = ROOT_DIR / "Data/Processed/folds"

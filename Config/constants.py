@@ -30,3 +30,6 @@ NUM_CLASSES = 43
 MODEL_CHECKPOINTS_DIR = ROOT_DIR / "Experiments/checkpoints"
 LOGS_DIR = ROOT_DIR / "Experiments/lightning_logs"
 FOLDS_DIR = ROOT_DIR / "Data/Processed/folds"
+
+# model evaluation
+MODEL_CHECKPOINT = ROOT_DIR / "Experiments/checkpoints/exp005-epoch=36-val_acc=0.995.ckpt"

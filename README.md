@@ -1,4 +1,4 @@
-# Traffic Sign Recognition (in progress)
+# Traffic Sign Recognition
 Part of my bachelor thesis, traffic sign image recognition and classification neural network model. 
 
 ## Dataset

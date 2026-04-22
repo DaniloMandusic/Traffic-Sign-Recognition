@@ -1,5 +1,5 @@
 # Traffic Sign Recognition
-Part of my bachelor thesis, traffic sign image recognition and classification neural network model. 
+Traffic sign image recognition and classification neural network model. 
 
 ## Dataset
 - 26640 images

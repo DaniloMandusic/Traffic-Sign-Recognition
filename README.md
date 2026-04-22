@@ -26,6 +26,9 @@ Part of my bachelor thesis, traffic sign image recognition and classification ne
 - Validation on every epoch
 - Saving top 1 checkpoint
 
+## Model Selection
+- 3 iterations of cross validation
+
 ## Evaluation
 - Accuracy: 98%
 - Precision: 99%
